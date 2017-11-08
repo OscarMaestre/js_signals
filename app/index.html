@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Signals and circles </title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+
+	<!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
+	<!-- For iPhone 4 with high-resolution Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon.png">
+	<!-- For first-generation iPad: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon.png">
+	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	<!-- For nokia devices and desktop browsers : -->
+	<link rel="shortcut icon" href="favicon.ico" />
+
+	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+	<meta http-equiv="cleartype" content="on">
+
+	<!-- jQuery Mobile CSS bits -->
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
+
+	<!-- Custom css -->
+	<link rel="stylesheet" href="css/custom.css" />
+
+	<!-- Javascript includes -->
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/konva.min.js"></script>
+	<script src="js/mobileinit.js"></script>
+	<script src="js/ios-orientationchange-fix.min.js"></script>
+	<script src="js/jquery.mobile-1.4.0.js"></script>
+	<script src="js/application.js"></script>
+	<!-- Startup Images for iDevices -->
+	<script>(function(){var a;if(navigator.platform==="iPad"){a=window.orientation!==90||window.orientation===-90?"images/startup-tablet-landscape.png":"images/startup-tablet-portrait.png"}else{a=window.devicePixelRatio===2?"images/startup-retina.png":"images/startup.png"}document.write('<link rel="apple-touch-startup-image" href="'+a+'"/>')})()</script>
+	<!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
+	<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+	<style>
+		canvas#lienzo{
+			width: 100%;
+			border: solid #d3d3d3 1px;
+		}
+	</style>
+</head>
+<body>
+	<div data-role="page">
+
+		<div data-role="header">
+			<h1>Signals and circles</h1>
+		</div>
+
+		<div data-role="content">
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<label for="amplitud">Amplitude</label>
+					<input type="range" id="amplitud" min="1" max="10" value="3">
+					
+					<label for="frecuencia">Frequency</label>
+					<input type="range" id="frecuencia" min="1" max="20" value="10">
+					
+					<label for="fase">Phase (in degrees)</label>
+					<input type="range" id="fase" min="0" max="360" value="0">
+				</div>
+				<div class="ui-block-b">
+					<canvas id="lienzo">
+						
+					</canvas>		
+				</div>
+				<textarea id="log">
+					
+				</textarea>
+			</div>
+			
+			
+		</div>
+
+		
+	</div>
+</body>
+</html>
